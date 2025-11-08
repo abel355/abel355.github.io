@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Abel</title>
+
+</head>
+<body>
+
+    <div class="decoracion">
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+        <div class="cuadro"></div>
+        <div class="circulo"></div>
+    </div>
+
+    <h1>¿Quién soy?</h1>
+
+
+    <div class="foto">
+        <img src="img/Abel.jpeg" alt="Foto de perfil">
+    </div>
+
+        <h2>Sánchez Cabanillas Abel</h2>
+
+    <!-- Contenedor de globos -->
+    <div id="contenedor-globos"></div>
+
+    <script>
+        const colores = ["#ff4d4d", "#ffcc00", "#66ff66", "#66b3ff", "#ff66b2", "#ffa366", "#cc99ff"];
+        const contenedor = document.getElementById("contenedor-globos");
+
+        function crearGlobo() {
+            const globo = document.createElement("div");
+            globo.classList.add("globo");
+
+            // Color aleatorio
+            globo.style.background = colores[Math.floor(Math.random() * colores.length)];
+
+            // Posición horizontal aleatoria
+            globo.style.left = Math.random() * window.innerWidth + "px";
+
+            // Tamaño pequeño adaptado a móviles
+            const tamaño = 15 + Math.random() * 20;
+            globo.style.width = tamaño + "px";
+            globo.style.height = tamaño * 1.3 + "px";
+
+            // Duración aleatoria
+            const duracion = 5 + Math.random() * 4;
+            globo.style.animationDuration = duracion + "s";
+
+            contenedor.appendChild(globo);
+
+            // Eliminar globo después de animación
+            setTimeout(() => globo.remove(), duracion * 1000 + 500);
+        }
+
+        // Crear globos cada cierto tiempo
+        setInterval(crearGlobo, 300);
+    </script>
+
+</body>
+</html>
